@@ -14,7 +14,7 @@ $(EXECUTABLE): $(OBJECTS)
 	$(CC) $(CFLAGS) $< -o $@
 
 clean:
-	rm -rf src/*.o $(EXECUTABLE) $(EXECUTABLE)
+	rm -rf *.o src/*.o $(EXECUTABLE) 
 
 test: all
 	./$(EXECUTABLE)
