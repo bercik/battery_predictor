@@ -2,3 +2,4 @@
 src/*.o
 *.swp
 src/*.swp
+gsl
