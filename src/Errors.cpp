@@ -14,3 +14,6 @@ bp::error::error(std::string msg)
 
 bp::too_less_points::too_less_points(std::string msg)
    : error(msg) {}
+
+bp::cant_calculate::cant_calculate(std::string msg)
+   : error(msg) {}

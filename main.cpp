@@ -2,6 +2,7 @@
 #include "inc/Parser.h"
 #include "inc/File.h"
 #include "inc/MonotonicPoints.h"
+#include "inc/UNumber.h"
 
 #include <iostream>
 

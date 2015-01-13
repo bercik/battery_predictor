@@ -1,7 +1,8 @@
 CC=g++
 CFLAGS=-c -Wall -std=c++11
 LDFLAGS=
-SOURCES=main.cpp src/Parser.cpp src/File.cpp src/Errors.cpp src/Consts.cpp
+SOURCES=main.cpp src/Parser.cpp src/File.cpp src/Errors.cpp src/Consts.cpp \
+	src/BatteryPredict.cpp
 OBJECTS=$(SOURCES:.cpp=.o)
 EXECUTABLE=main
 

@@ -23,6 +23,12 @@ namespace bp
       public:
          too_less_points(std::string msg = "");
    };
+
+   class cant_calculate : public error
+   {
+      public:
+         cant_calculate(std::string msg = "");
+   };
 }
 
 #endif /* ERRORS_H */
