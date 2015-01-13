@@ -96,6 +96,7 @@ MonotonicPoints bp::Parser::GetMonotonicPoints(const std::vector<Point>& points)
          // i przekroczyla liczbe MAX_MON_CONSTS pod rzad to przerywamy petle
          if (mon_consts >= MAX_MON_CONSTS)
          {
+            ++i;
             break;
          }
       }
