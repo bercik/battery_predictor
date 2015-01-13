@@ -1,7 +1,7 @@
-#include "src/Point.h"
-#include "src/Parser.h"
-#include "src/File.h"
-#include "src/MonotonicPoints.h"
+#include "inc/Point.h"
+#include "inc/Parser.h"
+#include "inc/File.h"
+#include "inc/MonotonicPoints.h"
 
 #include <iostream>
 

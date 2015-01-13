@@ -1,8 +1,8 @@
-#include "Parser.h"
-#include "Consts.h"
-#include "Point.h"
-#include "MonotonicPoints.h"
-#include "Errors.h"
+#include "../inc/Parser.h"
+#include "../inc/Consts.h"
+#include "../inc/Point.h"
+#include "../inc/MonotonicPoints.h"
+#include "../inc/Errors.h"
 
 #include <vector>
 #include <string>
