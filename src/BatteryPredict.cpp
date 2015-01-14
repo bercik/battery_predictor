@@ -101,7 +101,7 @@ ostream& bp::operator<<(ostream& os, const BatteryPredict& bp)
    {
       os << "Bateria ładuje się\n";
       os << "Do całkowitego naładowania pozostało " << 
-         bp.GetFullChargeTime() << " minut\n";
+         bp.GetFullChargeTime() << " minut";
    }
    else
    {
@@ -111,7 +111,7 @@ ostream& bp::operator<<(ostream& os, const BatteryPredict& bp)
       os << "Do całkowitego rozładowania pozostało " << 
          bp.GetFullDischargeTime() << " minut\n";
       os << "Teoretyczny czas działania od pełnego naładowania " <<
-         bp.GetTheoriticalTimeFromFullCharge() << " minut\n";
+         bp.GetTheoriticalTimeFromFullCharge() << " minut";
    }
 
    return os;
