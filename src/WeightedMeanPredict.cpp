@@ -4,9 +4,6 @@
 
 #include <cmath>
 
-// DEBUG
-#include <iostream>
-
 using namespace bp;
 using namespace std;
 
@@ -26,8 +23,6 @@ void bp::WeightedMeanPredict::Calculate(const MonotonicPoints& mon_points)
       _SetCharging(true);
 
    unsigned actual_charge = mon_points.points[mon_points.points.size() - 1].y;
-   cout << "actual_charge: " << actual_charge << "\n"; 
-   cout << "weighted_mean: " << weighted_mean << "\n";
 
    if (IsCharging())
    {
@@ -46,7 +41,7 @@ void bp::WeightedMeanPredict::Calculate(const MonotonicPoints& mon_points)
 double bp::WeightedMeanPredict::_CalculateWeightedMean(const vector<Point>& points) const
 {
    // zmienne pomocnicze
-   unsigned weight = points.size() - 1;
+   unsigned weight = 1 << (points.size() - 2);
    int sum = 0;
    unsigned weight_sum = 0u;
 
@@ -57,7 +52,7 @@ double bp::WeightedMeanPredict::_CalculateWeightedMean(const vector<Point>& poin
       sum += weight * diff;
       weight_sum += weight;
 
-      --weight;
+      weight >>= 1;
    }
 
    return (static_cast<double>(sum) / static_cast<double>(weight_sum));
