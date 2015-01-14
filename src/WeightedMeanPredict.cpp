@@ -4,13 +4,10 @@
 
 #include <cmath>
 
-// DEBUG
-#include <iostream>
-
 using namespace bp;
 using namespace std;
 
-const unsigned bp::WeightedMeanPredict::_MAX_POINTS = 18;
+const unsigned bp::WeightedMeanPredict::_MAX_POINTS = 16;
 
 bp::WeightedMeanPredict::WeightedMeanPredict(const MonotonicPoints& mon_points)
    : BatteryPredict()
@@ -58,7 +55,6 @@ double bp::WeightedMeanPredict::_CalculateWeightedMean(const vector<Point>& poin
    // pamiętamy, że punkty są teraz już w dobrej kolejności
    for (unsigned i = n_points + 1; i >= 1; --i)
    {
-      cout << "w: " << weight << "\n";
       int diff = points[i].y - points[i-1].y; 
       sum += weight * diff;
       weight_sum += weight;

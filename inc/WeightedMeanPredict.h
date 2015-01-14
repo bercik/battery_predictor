@@ -24,7 +24,7 @@ namespace bp
          int _WhenReachCharge(unsigned actual_charge, double weighted_mean,
             unsigned destination_charge) const;
          // maksymalna liczba punktow branych pod uwage (wiekszej ilosci i tak
-         // nie ma sensu ze wzgl. na geometryczny charakter tego przewidywania
+         // nie ma sensu ze wzgl. na geometryczny charakter tego przewidywania)
          static const unsigned _MAX_POINTS;
    };
 }
