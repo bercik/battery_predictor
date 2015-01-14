@@ -1,10 +1,10 @@
-#include "inc/Point.h"
-#include "inc/Parser.h"
-#include "inc/File.h"
-#include "inc/MonotonicPoints.h"
-#include "inc/UNumber.h"
-#include "inc/BatteryPredict.h"
-#include "inc/WeightedMeanPredict.h"
+#include "../inc/Point.h"
+#include "../inc/Parser.h"
+#include "../inc/File.h"
+#include "../inc/MonotonicPoints.h"
+#include "../inc/UNumber.h"
+#include "../inc/BatteryPredict.h"
+#include "../inc/WeightedMeanPredict.h"
 
 #include <iostream>
 
