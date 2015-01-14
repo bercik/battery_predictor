@@ -20,6 +20,9 @@ namespace bp
          // zwraca czas do krytycznego rozładowania baterii
          // lub wyjątek jeśli nie mógł obliczyć
          unsigned GetCriticalDischargeTime() const;
+         // zwraca teoretyczny czas od naładowania baterii
+         // lub wyjątek jeśli nie mógł obliczyć
+         unsigned GetTheoriticalTimeFromFullCharge() const;
          // zwraca czy bateria ładuje się
          bool IsCharging() const;
          // oblicza wszystkie parametry na podstawie podanych
@@ -28,12 +31,22 @@ namespace bp
       protected:
          // z klasy należy dziedziczyć
          BatteryPredict();
+         // settery
+         void _SetCharging(bool charging);
+         void _SetFullDischargeTime(unsigned full_discharge_time, bool nan = false);
+         void _SetFullChargeTime(unsigned full_charge_time, bool nan = false);
+         void _SetTheoriticalTimeFromFullCharge(unsigned theoretical_time_from_full_charge,
+            bool nan = false);
+         void _SetCriticalDischargeTime(unsigned critical_discharge_time,bool nan = false);
+      private:
          // czas do całkowitego rozładowania baterii
          UNumber _full_discharge_time;
          // czas do całkowitego naładowania baterii
          UNumber _full_charge_time;
          // czas do krytycznego rozładowania baterii
          UNumber _critical_discharge_time;
+         // teoretyczny czas działania od całkowitego naładowania
+         UNumber _theoretical_time_from_full_charge;
          // czy bateria się ładuje 
          bool _charging;
    };
