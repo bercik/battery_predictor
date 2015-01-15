@@ -28,7 +28,10 @@ void bp::WeightedMeanPredict::Calculate(const MonotonicPoints& mon_points)
 
    if (IsCharging())
    {
-      _SetFullChargeTime(_WhenReachCharge(actual_charge, weighted_mean, 100));
+      if (weighted_mean == 0.0)
+         _SetFullChargeTime(0u);
+      else
+         _SetFullChargeTime(_WhenReachCharge(actual_charge, weighted_mean, 100));
    }
    else
    {
