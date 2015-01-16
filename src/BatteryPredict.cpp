@@ -123,6 +123,7 @@ ostream& bp::operator<<(ostream& os, const BatteryPredict& bp)
       os << "Bateria rozładowuje się (" << bp.GetActualCharge() << "%)\n";
 
       if (bp.IsCriticalDischarge())
+         // czerwona pogrubiona czcionka
          os << "\033[1;31m" << "Poziom naładowania jest niższy od krytycznego (" <<
             CONSTS::BATTERY_CRITICAL_LEVEL << "%)!\033[0m\n";
       else
