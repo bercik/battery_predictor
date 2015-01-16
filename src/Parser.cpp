@@ -71,8 +71,8 @@ MonotonicPoints bp::Parser::GetMonotonicPoints(const std::vector<Point>& points)
    // potrzeba co najmniej 2 punktów, żeby móc cokolwiek powiedzieć
    // o monotoniczności punktów
    if (points.size() < 2)
-      throw too_less_points("Potrzeba co najmniej 2 punktow"
-         " monotonic of points");
+      throw too_less_points("Potrzeba co najmniej 2 punktów, aby"
+         " analizować ich monotoniczność (battery.log)");
 
    // Pamiętamy, że dostajemy punkty w odwróconej kolejności!
    MONOTONIC monotonic = _Specify2PointsMonotonic(points[1], points[0]);
