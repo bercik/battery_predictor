@@ -25,6 +25,7 @@ void bp::WeightedMeanPredict::Calculate(const MonotonicPoints& mon_points)
       _SetCharging(true);
 
    unsigned actual_charge = mon_points.points[mon_points.points.size() - 1].y;
+   _SetActualCharge(actual_charge);
 
    if (IsCharging())
    {

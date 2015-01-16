@@ -45,6 +45,11 @@ unsigned bp::BatteryPredict::GetTheoriticalTimeFromFullCharge() const
    return _theoretical_time_from_full_charge.number;
 }
 
+unsigned bp::BatteryPredict::GetActualCharge() const
+{
+   return _actual_charge;
+}
+
 bool bp::BatteryPredict::IsCharging() const
 {
    return _charging;
@@ -95,17 +100,22 @@ void bp::BatteryPredict::_SetTheoriticalTimeFromFullCharge(
    _theoretical_time_from_full_charge.nan = nan;
 }
 
+void bp::BatteryPredict::_SetActualCharge(unsigned actual_charge)
+{
+   _actual_charge = actual_charge;
+}
+
 ostream& bp::operator<<(ostream& os, const BatteryPredict& bp)
 {
    if (bp.IsCharging())
    {
-      os << "Bateria ładuje się\n";
+      os << "Bateria ładuje się (" << bp.GetActualCharge() << "%)\n";
       os << "Do całkowitego naładowania pozostało " << 
          bp.GetFullChargeTime() << " minut";
    }
    else
    {
-      os << "Bateria rozładowuje się\n";
+      os << "Bateria rozładowuje się (" << bp.GetActualCharge() << "%)\n";
       os << "Do krytycznego (" << CONSTS::BATTERY_CRITICAL_LEVEL << "%) "
          "rozładowania pozostało " << bp.GetCriticalDischargeTime() << " minut\n";
       os << "Do całkowitego rozładowania pozostało " << 

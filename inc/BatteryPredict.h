@@ -23,6 +23,8 @@ namespace bp
          // zwraca teoretyczny czas od naładowania baterii
          // lub wyjątek jeśli nie mógł obliczyć
          unsigned GetTheoriticalTimeFromFullCharge() const;
+         // Zwraca poziom aktualnego naładowania baterii
+         unsigned GetActualCharge() const;
          // zwraca czy bateria ładuje się
          bool IsCharging() const;
          // oblicza wszystkie parametry na podstawie podanych
@@ -38,6 +40,7 @@ namespace bp
          void _SetTheoriticalTimeFromFullCharge(unsigned theoretical_time_from_full_charge,
             bool nan = false);
          void _SetCriticalDischargeTime(unsigned critical_discharge_time,bool nan = false);
+         void _SetActualCharge(unsigned actual_charge);
       private:
          // czas do całkowitego rozładowania baterii
          UNumber _full_discharge_time;
@@ -47,6 +50,8 @@ namespace bp
          UNumber _critical_discharge_time;
          // teoretyczny czas działania od całkowitego naładowania
          UNumber _theoretical_time_from_full_charge;
+         // aktualny stan naładowania (w %)
+         unsigned _actual_charge;
          // czy bateria się ładuje 
          bool _charging;
    };
