@@ -55,6 +55,11 @@ bool bp::BatteryPredict::IsCharging() const
    return _charging;
 }
 
+bool bp::BatteryPredict::IsCriticalDischarge() const
+{
+   return (GetActualCharge() <= CONSTS::BATTERY_CRITICAL_LEVEL);
+}
+
 void bp::BatteryPredict::_SetCharging(bool charging)
 {
    _charging = charging;
@@ -116,8 +121,14 @@ ostream& bp::operator<<(ostream& os, const BatteryPredict& bp)
    else
    {
       os << "Bateria rozładowuje się (" << bp.GetActualCharge() << "%)\n";
-      os << "Do krytycznego (" << CONSTS::BATTERY_CRITICAL_LEVEL << "%) "
-         "rozładowania pozostało " << bp.GetCriticalDischargeTime() << " minut\n";
+
+      if (bp.IsCriticalDischarge())
+         os << "\033[1;31m" << "Poziom naładowania jest niższy od krytycznego (" <<
+            CONSTS::BATTERY_CRITICAL_LEVEL << "%)!\033[0m\n";
+      else
+         os << "Do krytycznego (" << CONSTS::BATTERY_CRITICAL_LEVEL << "%) "
+            "rozładowania pozostało " << bp.GetCriticalDischargeTime() << " minut\n";
+
       os << "Do całkowitego rozładowania pozostało " << 
          bp.GetFullDischargeTime() << " minut\n";
       os << "Teoretyczny czas działania od pełnego naładowania " <<

@@ -27,6 +27,8 @@ namespace bp
          unsigned GetActualCharge() const;
          // zwraca czy bateria ładuje się
          bool IsCharging() const;
+         // zwraca czy poziom naładowania baterii jest poniżej krytycznego
+         bool IsCriticalDischarge() const;
          // oblicza wszystkie parametry na podstawie podanych
          // punktów monotoniczności
          virtual void Calculate(const MonotonicPoints& mon_points) = 0;
