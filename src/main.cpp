@@ -5,6 +5,7 @@
 #include "../inc/UNumber.h"
 #include "../inc/BatteryPredict.h"
 #include "../inc/WeightedMeanPredict.h"
+#include "../inc/Errors.h"
 
 #include <iostream>
 
@@ -19,11 +20,18 @@ int main()
    vector<Point> reverse_points = Parser::GetPoints(reverse_lines);
    // uzyskujemy punkty monotonicznosci (juz w oryginalnej kolejności)
    // czyli znowu je odwracamy
-   MonotonicPoints monotonic_points = Parser::GetMonotonicPoints(reverse_points);
-   // konstruujemy obiekt przewidujacy korzystający ze średniej ważonej
-   WeightedMeanPredict wmp(monotonic_points);
-   // wyświetlamy aktualny status baterii w oparciu o model średniej ważonej
-   cout << wmp << "\n";
+   try
+   {
+      MonotonicPoints monotonic_points = Parser::GetMonotonicPoints(reverse_points);
+      // konstruujemy obiekt przewidujacy korzystający ze średniej ważonej
+      WeightedMeanPredict wmp(monotonic_points);
+      // wyświetlamy aktualny status baterii w oparciu o model średniej ważonej
+      cout << wmp << "\n";
+   }
+   catch (too_less_points& err)
+   {
+      cout << err.GetMsg() << "\n";
+   }
 
    return 0;
 }

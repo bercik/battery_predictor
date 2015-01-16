@@ -32,9 +32,9 @@ Point bp::Parser::_ParseLine(const std::string& line)
    Point p;
 
    // data jest w formacie 
-   // 12.01.2015 21:32 45%
+   // 12.01.2015-21:32 45%
    // wyłuskujemy wartosc procentowa
-   string percent = _SplitString(line, ' ')[2];
+   string percent = _SplitString(line, ' ')[1];
    // usuwamy ostatni znak (%)
    percent = percent.substr(0, percent.size() - 1);
    // konwertujemy string to int i przypisujemy do punktu
@@ -71,7 +71,7 @@ MonotonicPoints bp::Parser::GetMonotonicPoints(const std::vector<Point>& points)
    // potrzeba co najmniej 2 punktów, żeby móc cokolwiek powiedzieć
    // o monotoniczności punktów
    if (points.size() < 2)
-      throw too_less_points("Need at least 2 points to analyze"
+      throw too_less_points("Potrzeba co najmniej 2 punktow"
          " monotonic of points");
 
    // Pamiętamy, że dostajemy punkty w odwróconej kolejności!
