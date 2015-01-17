@@ -120,7 +120,7 @@ ostream& bp::operator<<(ostream& os, const BatteryPredict& bp)
          os << "Do całkowitego naładowania pozostało " << 
             bp.GetFullChargeTime() << " minut";
       }
-      catch (too_less_points& err)
+      catch (cant_calculate& err)
       {
          os << err.GetMsg() << "\n";
       }
@@ -140,7 +140,7 @@ ostream& bp::operator<<(ostream& os, const BatteryPredict& bp)
             os << "Do krytycznego (" << CONSTS::BATTERY_CRITICAL_LEVEL << "%) "
                "rozładowania pozostało " << bp.GetCriticalDischargeTime() << " minut\n";
          }
-         catch (too_less_points& err)
+         catch (cant_calculate& err)
          {
             os << err.GetMsg() << "\n";
          }
@@ -151,7 +151,7 @@ ostream& bp::operator<<(ostream& os, const BatteryPredict& bp)
          os << "Do całkowitego rozładowania pozostało " << 
             bp.GetFullDischargeTime() << " minut\n";
       }
-      catch (too_less_points& err)
+      catch (cant_calculate& err)
       {
          os << err.GetMsg() << "\n";
       }
@@ -160,7 +160,7 @@ ostream& bp::operator<<(ostream& os, const BatteryPredict& bp)
          os << "Teoretyczny czas działania od pełnego naładowania " <<
             bp.GetTheoriticalTimeFromFullCharge() << " minut";
       }
-      catch (too_less_points& err)
+      catch (cant_calculate& err)
       {
          os << err.GetMsg() << "\n";
       }
