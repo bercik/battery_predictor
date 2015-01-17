@@ -1,5 +1,5 @@
 # battery_predictor
-C++ program which gets battery charge over time data from file, parse it and predict when battery will be empty.
+C++ program which gets battery charge over time data from file, parses it and predicts when the battery will be empty.
 
 # collecting battery charge data
-battery.sh bash script can be used to collecting battery charge data over time. To do that for example you can add it call to crontab and executes it every two minutes. 
+battery.sh bash script can be used to collect battery charge data over time. For example you can add it's reference to crontab which will execute it every two minutes.
