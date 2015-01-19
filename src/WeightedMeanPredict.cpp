@@ -4,6 +4,9 @@
 
 #include <cmath>
 
+// DEBUG
+#include <iostream>
+
 using namespace bp;
 using namespace std;
 
@@ -47,17 +50,19 @@ void bp::WeightedMeanPredict::Calculate(const MonotonicPoints& mon_points)
 double bp::WeightedMeanPredict::_CalculateWeightedMean(const vector<Point>& points) const
 {
    // zmienne pomocnicze
+   unsigned n_points = points.size();
+   // ostatni brany pod uwage punkt (minus 1)
+   unsigned min_point = 1;
    // ograniczamy maksymalna ilosc punktow branych pod uwage
-   unsigned n_points = points.size() - 2;
    if (n_points > _MAX_POINTS)
-      n_points = _MAX_POINTS;
+      min_point = n_points - _MAX_POINTS;
 
-   unsigned weight = 1 << n_points; 
+   unsigned weight = 1 << (n_points - min_point - 1); 
    int sum = 0;
    unsigned weight_sum = 0u;
 
    // pamiętamy, że punkty są teraz już w dobrej kolejności
-   for (unsigned i = n_points + 1; i >= 1; --i)
+   for (unsigned i = n_points - 1; i >= min_point; --i)
    {
       int diff = points[i].y - points[i-1].y; 
       sum += weight * diff;
